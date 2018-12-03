@@ -12,27 +12,19 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 */
 
-#ifndef Reimu_libIMEI_OwO
-#define Reimu_libIMEI_OwO
+#include "../libIMEI.hpp"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include <iostream>
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <inttypes.h>
+using namespace IMEIPlus;
 
-#include <sys/types.h>
-#include <sys/stat.h>
+int main() {
+	auto imei = IMEI::GenerateRandom();
 
-extern int IMEI_Verify(uint64_t IMEI);
-extern uint64_t IMEI_Generate_Random();
+	std::string imei_str = imei;
+	uint64_t imei_int = imei;
 
-#ifdef __cplusplus
-};
-#endif
+	std::cout << imei_str << "\n";
 
-#endif /* Reimu_libIMEI_OwO */
+	return 0;
+}
